@@ -1,0 +1,1 @@
+docker run --name=lair --network=dbnetwork -e WORDPRESS_DB_HOST=spawning-pool -e WORDPRESS_DB_NAME=zerglings -e WORDPRESS_DB_USER=root -e WORDPRESS_DB_PASSWORD=Kerrigan -p 8080:80 -v wordpress:/var/www/html -d wordpress

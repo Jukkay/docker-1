@@ -1,0 +1,15 @@
+docker run --name=Abathur -v ~/:/root -p 3000:3000 -t -d python:2-slim
+docker exec Abathur /usr/local/bin/python -m pip install --upgrade pip
+docker exec Abathur pip install Flask
+docker exec Abathur mkdir -p /var/www/TestApp/app/
+echo "from flask import Flask
+app = Flask(__name__)
+
+@app.route('/')
+def home():
+    return '<h1>Hello World</h1>'
+if __name__== '__main__':
+    app.run(host='0.0.0.0', port=3000)" > app.py
+docker cp app.py Abathur:/var/www/TestApp/app/
+rm app.py
+docker exec Abathur python /var/www/TestApp/app/app.py

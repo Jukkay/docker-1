@@ -1,0 +1,2 @@
+docker network create dbnetwork
+docker run --name=spawning-pool -v hatchery --network=dbnetwork --cap-add=sys_nice -e MYSQL_ROOT_PASSWORD=Kerrigan -e MYSQL_DATABASE=zerglings --restart on-failure -d mysql

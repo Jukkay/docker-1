@@ -1,0 +1,9 @@
+# "Turn the VM you made into a slave of the local swarm in which your local machine
+# is the leader (the command to take control of the VM is not requested)."
+# NOTE. For some reason this does not work if swarm is created on the VM host machine.
+
+# 1. On leader machine (use host IP address)
+docker swarm init --advertise-addr 10.11.4.4
+
+# 2. Copy a join command from the output and paste to the worker machine CLI
+docker swarm join --token SWMTKN-1-0hankbktpzp473edayeoczg8g6shng2digca7m4x6g76v1ckdx-epboybfdndeko74aw7tirgrtm 10.11.4.4:2377

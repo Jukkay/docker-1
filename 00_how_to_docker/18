@@ -1,0 +1,12 @@
+# "Create a virtual machine with virtualbox, just like you did in roger-skyline-1.
+# Make sure the VM’s networking works both ways with your local machine. Make
+# sure you install and configure Docker to work on the VM."
+
+# 1. Install VM. Bridged network adapter.
+# 2. Install docker https://docs.docker.com/engine/install/debian/
+	curl -fsSL https://get.docker.com -o get-docker.sh
+	sudo sh get-docker.sh
+# 3. Enable docker run without sudo https://docs.docker.com/engine/install/linux-postinstall/
+	sudo groupadd docker
+	sudo usermod -aG docker $USER
+# 4. Restart VM
